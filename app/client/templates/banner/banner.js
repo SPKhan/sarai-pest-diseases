@@ -17,10 +17,11 @@ Template.Banner.helpers({
 /* Banner: Lifecycle Hooks */
 /*****************************************************************************/
 Template.Banner.created = function () {
-	$('.parallax').parallax();
+
 };
 
 Template.Banner.rendered = function () {
+		$('.parallax').parallax();
 };
 
 Template.Banner.destroyed = function () {

@@ -1,7 +1,6 @@
 Template.MasterLayout.helpers({
   forceNarrow: function() {
-    if (isHome()) return isHome();
-    else return !isDesktop.get();
+    return true;
   },
   disableEdgeSwipe: function() {
     return isDesktop.get()

@@ -20,13 +20,11 @@ Template.Navigation.helpers({
     return (this.isTopNav && !isDesktop.get())
   },
   showLogo: function() {
-    return ((this.isTopNav && isHome()) || 
-            (this.isTopNav && !isDesktop.get()) || 
-            (!this.isTopNav && (!isHome() || !isDesktop.get())))
+    return true;
     //return this.isTopNav
   },
   showTopNavMenu: function() {
-    return ((this.isTopNav && isHome() && isDesktop.get()))
+    return (this.isTopNav && isDesktop.get())
   },
   showSideNavMenu: function() {
     return !this.isTopNav;
