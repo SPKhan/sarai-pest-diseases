@@ -41,6 +41,7 @@ Router.route('diseases', {
 });
 
 Router.route('search', {
+  layoutTemplate: 'SearchLayout',
   name: 'search',
   controller: 'SearchController',
   action: 'action',

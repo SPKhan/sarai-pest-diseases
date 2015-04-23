@@ -2,7 +2,7 @@
 /* Search: Event Handlers */
 /*****************************************************************************/
 Template.Search.events({
-  "keyup #search_box": _.throttle(function(e) {
+  "keyup #search-box": _.throttle(function(e) {
     var text = $(e.target).val().trim();
     PackageSearch.search(text);
   }, 200)

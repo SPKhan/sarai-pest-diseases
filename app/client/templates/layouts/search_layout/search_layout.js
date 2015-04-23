@@ -1,4 +1,4 @@
-Template.MasterLayout.helpers({
+Template.SearchLayout.helpers({
   forceNarrow: function() {
     return true;
   },
@@ -8,10 +8,10 @@ Template.MasterLayout.helpers({
   responsiveWidth: 750
 });
 
-Template.MasterLayout.events({
+Template.SearchLayout.events({
 });
 
-Template.MasterLayout.rendered = function(){
+Template.SearchLayout.rendered = function(){
   checkIsDesktop()
   $(window).resize(checkIsDesktop);
   
