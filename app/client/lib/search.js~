@@ -1,7 +1,2 @@
-var options = {
-  keepHistory: 1000 * 60 * 5,
-  localSearch: true
-};
-var fields = ['name'];
+Meteor.subscribe('diseases');
 
-PackageSearch = new SearchSource('packages', fields, options);

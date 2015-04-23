@@ -8,14 +8,11 @@
 
         </div>
         
-        {{#each getPackages}}
+        {{#each search_results}}
 		<div class="package">
 		<h4 class="name">
-		<a href="{{git}}" target="_blank">{{{packageName}}}</a>
+		<a href="/" target="_blank">{{{name}}}</a>
 		</h4>
-		<div class="description">
-		{{{description}}}
-		</div>
 		</div>
 	{{/each}} 
 

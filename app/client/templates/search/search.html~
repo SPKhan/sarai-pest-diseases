@@ -7,6 +7,17 @@
          <input name="url" id="search_box" type="text" value="" placeholder="Your URL" class="form-control"/>
 
         </div>
+        
+        {{#each search_results}}
+		<div class="package">
+		<h4 class="name">
+		<a href="/" target="_blank">{{{name}}}</a>
+		</h4>
+		<div class="description">
+		{{{description}}}
+		</div>
+		</div>
+	{{/each}} 
 
       </div> 
     </div>

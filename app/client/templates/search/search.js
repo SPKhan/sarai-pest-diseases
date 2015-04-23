@@ -4,7 +4,7 @@
 Template.Search.events({
   "keyup #search_box": _.throttle(function(e) {
     var text = $(e.target).val().trim();
-    PackageSearch.search(text);
+    Meteor.subscribe('diseases',text);
   }, 200)
 });
 
@@ -12,17 +12,8 @@ Template.Search.events({
 /* Search: Helpers */
 /*****************************************************************************/
 Template.Search.helpers({
-  getPackages: function() {
-    return PackageSearch.getData({
-      transform: function(matchText, regExp) {
-        return matchText.replace(regExp, "<b>$&</b>")
-      },
-      sort: {isoScore: -1}
-    });
-  },
-  
-  isLoading: function() {
-    return PackageSearch.getStatus().loading;
+  search_results: function(){
+    return Diseases.find();
   }
 });
 
