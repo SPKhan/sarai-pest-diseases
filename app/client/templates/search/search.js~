@@ -2,10 +2,6 @@
 /* Search: Event Handlers */
 /*****************************************************************************/
 Template.Search.events({
-  "keyup #search_box": _.throttle(function(e) {
-    var text = $(e.target).val().trim();
-    Meteor.subscribe('diseases');
-  }, 200)
 });
 
 /*****************************************************************************/

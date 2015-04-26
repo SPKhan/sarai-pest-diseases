@@ -3,7 +3,4 @@
  *  this.ready();
  * });
  */
- 
- Meteor.publish('diseases',function(query){
- 	return Diseases.find({name:query});
- });
+

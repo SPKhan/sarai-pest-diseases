@@ -4,17 +4,24 @@
        <div class="container">
         
         <div class="row center">
-         <input name="url" id="search_box" type="text" value="" placeholder="Your URL" class="form-control"/>
-
+         {{> esInput index="diseases" placeholder="Search..." }}
         </div>
         
-        {{#each search_results}}
-		<div class="package">
-		<h4 class="name">
-		<a href="/" target="_blank">{{{name}}}</a>
-		</h4>
-		</div>
-	{{/each}} 
+        <ul>
+          {{#esEach index="diseases"}}
+              <li>Name of the player: {{name}} </li>
+          {{/esEach}}
+      </ul>
+
+      {{> esLoadMoreButton index="diseases"}}
+
+      {{#ifEsHasNoResults index="diseases"}}
+          <div class="no-results">No results found!</div>
+      {{/ifEsHasNoResults}}
+
+      {{#ifEsIsSearching index="diseases"}}
+              <div>Loading...</div>
+      {{/ifEsIsSearching}}
 
       </div> 
     </div>
