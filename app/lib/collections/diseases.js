@@ -1,7 +1,7 @@
 Diseases = new Mongo.Collection('diseases');
 
 // Extended configuration
-Diseases.initEasySearch(['name'], {
+Diseases.initEasySearch(['name','image-url'], {
     'limit' : 20,
     'use' : 'mongo-db'
 });

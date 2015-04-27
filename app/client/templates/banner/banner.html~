@@ -9,11 +9,12 @@
         </div>
         <div class="row center">
          <a href="{{searchPath}}" id="download-button" class="btn-large waves-effect waves-light teal lighten-1">Search</a>
+         <a href="{{searchPath}}" id="download-button" class="btn-large waves-effect waves-light teal lighten-1">Search by Image</a>
         </div>
         <br><br>
 
       </div> 
     </div>
-    <div class="parallax"><core-image src="/public/images/bg.jpg" style="width: 100%;height:600px;"></core-image></div>
+    <div class="parallax"><core-image src="/images/bg.jpg" style="width: 100%;height:600px;"></core-image></div>
   </div>
 </template>

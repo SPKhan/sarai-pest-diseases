@@ -1,31 +1,23 @@
 /*****************************************************************************/
-/* Banner: Event Handlers */
+/* Diseases: Event Handlers */
 /*****************************************************************************/
-Template.Banner.events({
+Template.Diseases.events({
 });
 
 /*****************************************************************************/
-/* Banner: Helpers */
+/* Diseases: Helpers */
 /*****************************************************************************/
-Template.Banner.helpers({
-	searchPath: function(){
-		return "search";
-	},
-	imageSearchPath: function(){
-		return "image_search";
-	}
+Template.Diseases.helpers({
 });
 
 /*****************************************************************************/
-/* Banner: Lifecycle Hooks */
+/* Diseases: Lifecycle Hooks */
 /*****************************************************************************/
-Template.Banner.created = function () {
-
+Template.Diseases.created = function () {
 };
 
-Template.Banner.rendered = function () {
-		$('.parallax').parallax();
+Template.Diseases.rendered = function () {
 };
 
-Template.Banner.destroyed = function () {
+Template.Diseases.destroyed = function () {
 };

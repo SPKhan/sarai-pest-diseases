@@ -12,7 +12,7 @@ Template.Banner.helpers({
 		return "search";
 	},
 	imageSearchPath: function(){
-		return "image_search";
+		return "imagesearch";
 	}
 });
 

@@ -4,24 +4,25 @@
        <div class="container">
         
         <div class="row center">
-         {{> esInput index="diseases" placeholder="Search..." }}
+         {{> esInput index="diseases" placeholder="Search" }}
         </div>
-        
-        <ul>
-          {{#esEach index="diseases"}}
-              <li>Name of the player: {{name}} </li>
-          {{/esEach}}
-      </ul>
+      
+        <div class="wrapper">
+		{{#esEach index="diseases"}}
+			<div class="row entity">
+			      <!--<img src="{{imageURL}}"/>-->
+			      <h3>{{name}}<span class='small'>{{sciName}}</span></h3>
+			      <a href="/entity/{{_id}}" id="download-button" class="btn-large waves-effect waves-light teal lighten-1">View Page</a>
+			      <a href="/entity/{{_id}}/images" id="download-button" class="btn-large waves-effect waves-light teal lighten-1">View Images</a>
+			</div>
+		{{/esEach}}
+        </div>
 
       {{> esLoadMoreButton index="diseases"}}
 
       {{#ifEsHasNoResults index="diseases"}}
           <div class="no-results">No results found!</div>
       {{/ifEsHasNoResults}}
-
-      {{#ifEsIsSearching index="diseases"}}
-              <div>Loading...</div>
-      {{/ifEsIsSearching}}
 
       </div> 
     </div>

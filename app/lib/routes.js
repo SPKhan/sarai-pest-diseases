@@ -53,3 +53,9 @@ Router.route('image_search', {
   action: 'action',
   where: 'client'
 });
+
+Router.route('/entity/:_id', {
+  name: 'entityPage',
+  data: function() { return Diseases.findOne(this.params._id); }
+});
+

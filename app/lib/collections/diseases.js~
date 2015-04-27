@@ -1,5 +1,10 @@
 Diseases = new Mongo.Collection('diseases');
 
+// Extended configuration
+Diseases.initEasySearch(['name'], {
+    'limit' : 20,
+    'use' : 'mongo-db'
+});
 
 if (Meteor.isServer) {
   Diseases.allow({

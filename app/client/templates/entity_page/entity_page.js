@@ -1,31 +1,23 @@
 /*****************************************************************************/
-/* Banner: Event Handlers */
+/* entityPage: Event Handlers */
 /*****************************************************************************/
-Template.Banner.events({
+Template.entityPage.events({
 });
 
 /*****************************************************************************/
-/* Banner: Helpers */
+/* entityPage: Helpers */
 /*****************************************************************************/
-Template.Banner.helpers({
-	searchPath: function(){
-		return "search";
-	},
-	imageSearchPath: function(){
-		return "image_search";
-	}
+Template.entityPage.helpers({
 });
 
 /*****************************************************************************/
-/* Banner: Lifecycle Hooks */
+/* entityPage: Lifecycle Hooks */
 /*****************************************************************************/
-Template.Banner.created = function () {
-
+Template.entityPage.created = function () {
 };
 
-Template.Banner.rendered = function () {
-		$('.parallax').parallax();
+Template.entityPage.rendered = function () {
 };
 
-Template.Banner.destroyed = function () {
+Template.entityPage.destroyed = function () {
 };

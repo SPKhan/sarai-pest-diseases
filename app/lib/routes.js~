@@ -41,7 +41,6 @@ Router.route('diseases', {
 });
 
 Router.route('search', {
-  layoutTemplate: 'SearchLayout',
   name: 'search',
   controller: 'SearchController',
   action: 'action',
@@ -54,3 +53,8 @@ Router.route('image_search', {
   action: 'action',
   where: 'client'
 });
+
+Router.route('/entity/:_id', {
+  name: 'entityPage'
+});
+
