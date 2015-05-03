@@ -1,7 +1,18 @@
 <template name="entityPage">
 	<div class="section no-pad-bot">
-		<div class="container">
-			Entity PAGE
+		<div class="title-pane container">
+				<div class="name-container">
+					<h1 class="header teal-text text-lighten-2">{{eng_name}}</h1>
+					<h5 class="header col s12 light grey-text">{{fil_name}}</h5>
+					<h5 class="header col s12 light grey-text">{{sci_name}}</h5>
+					
+				</div>
+				<div class="symptom-container">
+					<p>{{symptoms}}</p>
+				</div>
+				<div class="treatment-container">
+					<p>{{treatment}}</p>
+				</div>
 		</div>
 	</div>
 </template>

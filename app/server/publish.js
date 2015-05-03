@@ -3,4 +3,6 @@
  *  this.ready();
  * });
  */
-
+Meteor.publish('plantProblem', function(){
+	return PlantProblem.find();
+});

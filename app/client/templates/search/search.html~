@@ -4,27 +4,45 @@
        <div class="container">
         
         <div class="row center">
-         {{> esInput index="diseases" placeholder="Search" }}
+         {{> esInput index="plantProblem" placeholder="Search" }}
         </div>
-        
-        {{#ifEsIsSearching index="diseases"}}
-              <div>Loading...</div>
-      {{/ifEsIsSearching}}
       
         <div class="wrapper">
-		{{#esEach index="diseases"}}
+		{{#esEach index="plantProblem"}}
+			{{#if equals type "Disease"}}
 			<div class="row entity">
 			      <!--<img src="{{imageURL}}"/>-->
-			      <h3>{{name}}<span class='small'>{{sciName}}</span></h3>
-			      <a href="/entity/{{_id}}" id="download-button" class="btn-large waves-effect waves-light teal lighten-1">View Page</a>
-			      <a href="/entity/{{_id}}/images" id="download-button" class="btn-large waves-effect waves-light teal lighten-1">View Images</a>
+			      <p>{{classification}} {{type}}</p>
+			      <p>{{eng_name}}</p>
+			      <p>Filipino Name: {{fil_name}}</p>
+			      <p>Scientific Name: {{sci_name}}</p>
+			      <p>Plant Affected: {{plant_affected}}</p>
+			      <p>{{charLimit symptoms}}</p>
+			      <a href="{{pathFor 'entityPage'}}" id="download-button" class="btn waves-effect waves-light teal lighten-1">View Page</a>
+			      <a href="{{pathFor 'entityPage'}}" id="download-button" class="btn waves-effect waves-light teal lighten-1">View Images</a>
 			</div>
+			{{/if}}
+			
+			{{#if equals type "Pest"}}
+			<div class="row entity">
+			      <!--<img src="{{imageURL}}"/>-->
+			      <p>{{type}}</p>
+			      <p>{{eng_name}}</p>
+			      <p>Order: {{order}}</p>
+			      <p>Filipino Name: {{fil_name}}</p>
+			      <p>Scientific Name: {{sci_name}}</p>
+			      <p>Plant Affected: {{plant_affected}}</p>
+			      <p>{{charLimit symptoms}}</p>
+			      <a href="{{pathFor 'entityPage'}}" id="download-button" class="btn waves-effect waves-light teal lighten-1">View Page</a>
+			      <a href="{{pathFor 'entityPage'}}" id="download-button" class="btn waves-effect waves-light teal lighten-1">View Images</a>
+			</div>
+			{{/if}}
 		{{/esEach}}
         </div>
 
-      {{> esLoadMoreButton index="diseases"}}
+      {{> esLoadMoreButton index="plantProblem"}}
 
-      {{#ifEsHasNoResults index="diseases"}}
+      {{#ifEsHasNoResults index="plantProblem"}}
           <div class="no-results">No results found!</div>
       {{/ifEsHasNoResults}}
 

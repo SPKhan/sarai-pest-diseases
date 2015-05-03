@@ -1,23 +1,24 @@
 /*****************************************************************************/
-/* Diseases: Event Handlers */
+/* entityPage: Event Handlers */
 /*****************************************************************************/
-Template.Diseases.events({
+Template.entityPage.events({
 });
 
 /*****************************************************************************/
-/* Diseases: Helpers */
+/* entityPage: Helpers */
 /*****************************************************************************/
-Template.Diseases.helpers({
+Template.entityPage.helpers({
 });
 
 /*****************************************************************************/
-/* Diseases: Lifecycle Hooks */
+/* entityPage: Lifecycle Hooks */
 /*****************************************************************************/
-Template.Diseases.created = function () {
+Template.entityPage.created = function () {
+console.log(this.data);
 };
 
-Template.Diseases.rendered = function () {
+Template.entityPage.rendered = function () {
 };
 
-Template.Diseases.destroyed = function () {
+Template.entityPage.destroyed = function () {
 };

@@ -1,7 +1,13 @@
-Diseases = new Mongo.Collection('diseases');
+PlantProblem = new Mongo.Collection('plantProblem');
+
+// Extended configuration
+PlantProblem.initEasySearch(['eng_name','fil_name','sci_name','symptoms'], {
+    'limit' : 20,
+    'use' : 'mongo-db'
+});
 
 if (Meteor.isServer) {
-  Diseases.allow({
+  PlantProblem.allow({
     insert: function (userId, doc) {
       return false;
     },
@@ -15,7 +21,7 @@ if (Meteor.isServer) {
     }
   });
 
-  Diseases.deny({
+  PlantProblem.deny({
     insert: function (userId, doc) {
       return true;
     },

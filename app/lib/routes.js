@@ -1,7 +1,8 @@
 Router.configure({
   layoutTemplate: 'MasterLayout',
   loadingTemplate: 'Loading',
-  notFoundTemplate: 'NotFound'
+  notFoundTemplate: 'NotFound',
+  waitOn: function() { return Meteor.subscribe('plantProblem'); }
 });
 
 Router.route('/', {
@@ -56,6 +57,7 @@ Router.route('image_search', {
 
 Router.route('/entity/:_id', {
   name: 'entityPage',
-  data: function() { return Diseases.findOne(this.params._id); }
+  data: function() { 
+  	return PlantProblem.findOne(this.params._id); }
 });
 
