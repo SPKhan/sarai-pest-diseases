@@ -6,7 +6,3 @@
 Meteor.publish('plantProblem', function(){
 	return PlantProblem.find();
 });
-
-Meteor.publish("images", function(){
-  return Images.find();
-});

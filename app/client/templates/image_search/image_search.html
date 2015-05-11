@@ -1,3 +1,4 @@
 <template name="ImageSearch">
-	<input type="file" name="myFileInput" class="myFileInput">
+	
+	{{> upload_bootstrap contentType='images' multiple=false formData=specificFormData callbacks=myCallbacks}}
 </template>
