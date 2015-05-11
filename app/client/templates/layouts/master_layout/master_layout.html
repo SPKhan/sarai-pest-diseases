@@ -1,5 +1,4 @@
 <template name="MasterLayout">
- 
   <core-drawer-panel 
     id="core-drawer-panel-main"
     forceNarrow = "{{forceNarrow}}"
@@ -12,6 +11,40 @@
 
     <core-header-panel main id="core-main">
       {{> Navigation isTopNav=true}}
+
+      <div horizontal layout justified style="background-color: #063462">
+
+  
+  <div horizontal layout center style=" height: 110px; padding-top: 10px; background-color: #063462">
+    <div>
+        <img src="/images/MAIN_LOGO.png" height="100px" width="100px" class="materialboxed" style="margin-left:20px;">
+        <!-- <img src="/images/gov_main_wo_logo.png" > -->
+        <!-- <h3 class="white-text" style="margin-left:20px;"> SARAI Web Applications</h3> -->
+      </div>
+
+      <div >
+            <!-- <img src="/images/logos/SARAI_White.png" height="100px" > -->
+            <!-- <h3 class="white-text" style="margin-left:20px;">MAPA NI SARAI</h3> -->
+            <h5 class="white-text" style="margin-left:20px; font-family:'Trajan Pro';">BETA SARAI PROGRAM</h5>
+            <hr style="margin-left:20px;">
+            <h4 class="white-text" style="margin-left:20px; margin-top:5px; font-family:'Trajan Pro';"><strong>PESTS AND DISEASES IDENTIFICATION</strong></h4>
+         </div>
+    </div>
+    {{#if isDesktop}}
+    <div horizontal layout center style=" height: 100px; margin-top:10px; background-color: #063462" class="z-depth-2">     
+         <div>
+        <!-- <img src="/images/MAIN_LOGO_100x100_1.png" style="margin-left:20px;"> -->
+        <!-- <img src="/images/gov_main_wo_logo.png" > -->
+        <div vertical style="margin-right: 50px;">
+          <h6 class="white-text" style="margin-left:20px;"> <strong>Current Climate Phase:</strong></h6>
+          
+          <h6 class="blue-text" style="margin-left:20px; margin-top:5px;"> Elusive El Nino arrives</h6>
+        </div>
+      </div>
+  </div>
+  {{/if}}
+  </div>
+      {{> Auxillary}}
       <div class="content">
         {{> yield}}
       </div>
@@ -20,5 +53,4 @@
       </div>
     </core-header-panel>
   </core-drawer-panel>
-  
 </template>

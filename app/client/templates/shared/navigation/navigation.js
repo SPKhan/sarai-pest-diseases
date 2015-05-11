@@ -20,10 +20,14 @@ Template.Navigation.helpers({
     return (this.isTopNav && !isDesktop.get())
   },
   showLogo: function() {
+    // return ((this.isTopNav && isHome()) || 
+    //         (this.isTopNav && !isDesktop.get()) || 
+    //         (!this.isTopNav && (!isHome() || !isDesktop.get())))
     return true;
-    //return this.isTopNav
   },
   showTopNavMenu: function() {
+    // return ((this.isTopNav && isHome() && isDesktop.get()))
+    //return true;
     return (this.isTopNav && isDesktop.get())
   },
   showSideNavMenu: function() {
@@ -31,38 +35,76 @@ Template.Navigation.helpers({
   },
   menuArray: function() {
     return [
+      // {
+      //   name: "Google",
+      //   path: "http://www.google.com",
+      //   linkInside: false
+      // },
+      
       {
-        name: "About",
-        path: "about",
-        linkInside: true
+        name: "Home",
+        path: "inside",
+        linkInside: true,
+        hasChild: false
       },      
+      
       {
-        name: "Pests",
-        path: "pests",
-        linkInside: true
-      },      
+        name: "Transparency Seal",
+        path: "posts",
+        linkInside: true,
+        hasChild: false
+      },
       {
-        name: "Diseases",
-        path: "diseases",
-        linkInside: true
-      },      
+        name: "Services",
+        path: "posts",
+        linkInside: true,
+        hasChild: false
+      },
       {
-        name: "Contact Us",
-        path: "contact",
-        linkInside: true
+        name: "Commodities",
+        path: "inside",
+        linkInside: true,
+        hasChild: true,
+        sublinks: [
+          {
+            name: "RICE",
+            path: "inside",
+            linkInside: true,
+            hasChild: false 
+          },
+          {
+            name: "CORN",
+            path: "inside",
+            linkInside: true,
+            hasChild: false 
+          }
+        ]
+      }, 
+      {
+        name: "Programs",
+        path: "settings",
+        linkInside: true,
+        hasChild: false
       }
     ]
-  },
-
+  }
 });
 
 /*****************************************************************************/
 /* Navigation: Lifecycle Hooks */
 /*****************************************************************************/
 Template.Navigation.created = function () {
+  //$(".dropdown-button").dropdown();
 };
 
 Template.Navigation.rendered = function () {
+  $('.dropdown-button').dropdown({
+     // gutter: 10,
+      constrain_width: true, // Does not change width of dropdown to that of the activator
+      hover: false, // Activate on hover
+      belowOrigin: true // Displays dropdown below the button
+    }
+  );
 };
 
 Template.Navigation.destroyed = function () {

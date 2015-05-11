@@ -8,6 +8,12 @@ Template.Home.events({
 /* Home: Helpers */
 /*****************************************************************************/
 Template.Home.helpers({
+	searchPath: function(){
+		return "search";
+	},
+	imageSearchPath: function(){
+		return "image_search";
+	}
 });
 
 /*****************************************************************************/
@@ -17,6 +23,7 @@ Template.Home.created = function () {
 };
 
 Template.Home.rendered = function () {
+	
 };
 
 Template.Home.destroyed = function () {

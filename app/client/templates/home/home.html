@@ -1,6 +1,58 @@
 <template name="Home">
-<div class="banner">
-    {{> Banner}}
-</div>
+	<div horizontal center-justified layout>
+		<a href="{{searchPath}}"><paper-button raised class="teal lighten-1 white-text">Search</paper-button></a>
 
+        <a href="{{imageSearchPath}}"><paper-button raised class="teal lighten-1 white-text">Search By Image</paper-button></a>
+    </div>
+    <div vertical layout style="height:500px">
+		<div flex>
+			<h4>PESTS</h4>
+			<div horizontal justified layout style="text-align: center;">
+				<div>
+					<img src="/images/apps/pests/Asian-Corn-Borer-ACB2.png" width="50%" >
+					<h5>Asian Corn Borer</h5>
+				</div>
+
+				<div>
+					<img src="/images/apps/pests/Common-Cutworm.png" width="50%" >
+					<h5>Common Cutworm</h5>
+				</div>
+
+				<div>
+					<img src="/images/apps/pests/Corn-Earworm2.png" width="50%" >
+					<h5>Corn Earworm</h5>
+				</div>
+
+				<div>
+					<img src="/images/apps/pests/Corn-Leaf-Aphid.png" width="50%" >
+					<h5>Corn Leaf Aphid</h5>
+				</div>
+			</div>
+		</div>
+
+		<div flex>
+			<h4>DISEASES</h4>
+			<div horizontal justified layout style="text-align: center;">
+				<div>
+					<img src="/images/apps/diseases/Banded-Leaf-and-Sheath-Blight.png" width="50%" >
+					<h5>Banded Leaf and Sheath Blight</h5>
+				</div>
+
+				<div>
+					<img src="/images/apps/diseases/Corn-Rust.png" width="50%" >
+					<h5>Corn Rust</h5>
+				</div>
+
+				<div>
+					<img src="/images/apps/diseases/Corn-Smut2.png" width="50%" >
+					<h5>Corn Smut</h5>
+				</div>
+
+				<div>
+					<img src="/images/apps/diseases/Downy-Mildew.png" width="50%" >
+					<h5>Downy Mildew</h5>
+				</div>
+			</div>
+		</div>
+	</div>
 </template>

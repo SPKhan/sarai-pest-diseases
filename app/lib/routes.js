@@ -52,7 +52,8 @@ Router.route('image_search', {
   name: 'imageSearch',
   controller: 'ImageSearchController',
   action: 'action',
-  where: 'client'
+  where: 'client',
+  waitOn: function () { return Meteor.subscribe('images'); }
 });
 
 Router.route('/entity/:_id', {

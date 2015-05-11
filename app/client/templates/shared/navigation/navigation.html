@@ -7,31 +7,77 @@
     {{/if}}
     
     {{#if showLogo}}
-      <div>
-        <h5><a href="{{pathFor 'home'}}" class="white-text">SARAI</a></h5>
+      <div layout horizontal center>
+        <!-- <h5><a href="{{pathFor 'home'}}" class="white-text">SARAI Template</a></h5> -->
+        <a href="{{pathFor 'home'}}" style="margin-top:10px;"><img src="/images/seal-govph.png"> </a>
       </div>
     {{/if}}
 
-    <div flex></div>
+    
 
     {{#if showTopNavMenu}}
-      <div id="top-nav-menu">
+      <div id="top-nav-menu" layout horizontal center>
         {{#each menuArray}}
-          <paper-button class="black white-text navigation"  data-path="{{path}}">
-            {{#if linkInside}}
-              {{#linkTo route=path}}
-                {{name}}
-              {{/linkTo}}
-            {{else}}
-              <a href="{{path}}">{{name}}</a>
-            {{/if}}
-          </paper-button>
+          {{#if hasChild}}
+            
+            <!-- <paper-button class="black white-text navigation" data-path="{{path}} ">
+              {{#if linkInside}}
+                {{#linkTo route=path}}
+                  {{name}}
+                {{/linkTo}}
+
+              {{else}}
+                <a href="{{path}}">{{name}}</a>
+              {{/if}}
+            </paper-button> -->
+            <!-- <core-menu>
+              <core-submenu label="{{name}}" class="black white-text navigation" >
+                    {{#each sublinks}}
+                    <core-item id="{{name}}" label="{{name}}">
+                      {{#if linkInside}}
+                        {{#linkTo route=path}}
+                         
+                        {{/linkTo}}
+                      {{else}}
+                        <a href="{{path}}">{{name}}</a>
+                      {{/if}}
+                    </core-item>
+                    {{/each}}
+              </core-submenu>
+            </core-menu> -->
+            <li style="margin-top: -5px;">
+              <a class="dropdown-button" data-beloworigin="true" href="{{path}}" data-activates="dropdown1" style="color: white; font-size: 13.5px;" >{{name}}<i class="mdi-navigation-arrow-drop-down"></i></a>
+            </li>
+
+            <ul id="dropdown1" class="dropdown-content black white-text">
+              {{#each sublinks}}
+              <li><a href="{{path}}" style="color: white; font-size: 13.5px;">{{name}}</a></li>
+              <li class="divider"></li>
+              {{/each}}
+            </ul>
+
+            
+            
+
+          {{else}}
+
+            <paper-button class="black white-text navigation" data-path="{{path}}">
+              {{#if linkInside}}
+                {{#linkTo route=path}}
+                  {{name}}
+                {{/linkTo}}
+              {{else}}
+                <a href="{{path}}">{{name}}</a>
+              {{/if}}
+            </paper-button>
+
+          {{/if}}
         {{/each}}
       </div>
       
       
     {{/if}}
-    
+    <div flex></div>
     {{#if isTopNav}}
       <div id="login-area">
         {{> loginButtons align="right"}}

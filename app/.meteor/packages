@@ -22,3 +22,6 @@ meteorhacks:search-source
 matteodem:easy-search
 dbarrett:dropzonejs
 sacha:spin
+cfs:standard-packages
+cfs:gridfs
+yogiben:autoform-file
