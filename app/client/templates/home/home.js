@@ -31,6 +31,9 @@ Template.Home.helpers({
 	},
 	diseases: function(){
 		return PlantProblem.find({'type': 'Disease'},{'limit':6});
+	},
+	imageName: function(str){
+		return str.replace(/\s/g, '');
 	}
 });
 

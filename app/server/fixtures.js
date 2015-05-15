@@ -94,7 +94,7 @@ if (PlantProblem.find().count() === 0) {
 		sci_name: 'Mythimna separata (Walker)',
 		fil_name: '',
 		eng_name: 'Ear-cutting caterpillar, Oriental Armyworm, Northern Armyworm',
-		name: 'Ear-cutting caterpillar'
+		name: 'Ear-cutting Caterpillar'
 	});
 	
 	PlantProblem.insert({
@@ -107,8 +107,8 @@ if (PlantProblem.find().count() === 0) {
 		treatment: '',
 		sci_name: 'Melanitis leda ismene Cramer',
 		fil_name: '',
-		eng_name: 'Greenhorned Caterpillar (larva), Common Evening Brown (adult)',
-		name: 'Common Evening Brown'
+		eng_name: 'Green Horned Caterpillar (larva), Common Evening Brown (adult)',
+		name: 'Green Horned Caterpillar'
 	});
 	
 	PlantProblem.insert({

@@ -3,10 +3,21 @@
 		<div class="title-pane container">
 				<div class="name-container">
 					<h1 class="header teal-text text-lighten-2">{{name}}</h1>
-					<h5 class="header col s12 light grey-text">{{eng_name}}</h5>
-					<h5 class="header col s12 light grey-text">{{fil_name}}</h5>
-					<h5 class="header col s12 light grey-text">{{sci_name}}</h5>
-					
+					{{#if equals type 'Pest'}}
+						<h6 class="col s12 light grey-text">{{order}}</h6>
+					{{/if}}
+					{{#if equals type 'Disease'}}
+						<h6 class="col s12 light grey-text">{{classification}}</h6>
+					{{/if}}
+					<img class="materialboxed" width="650" src="/images/apps/{{type}}/{{imageName name}}.jpg">
+					<h5 class="header col s12 light grey-text">English Names</h5>
+					<p>{{eng_name}}</p>
+					{{#if fil_name}}
+					<h5 class="header col s12 light grey-text">Filipino Names</h5>
+					<p>{{fil_name}}</p>
+					{{/if}}
+					<h5 class="header col s12 light grey-text">Scientific Name</h5>
+					<p>{{sci_name}}</p>
 				</div>
 				{{#if description}}
 				<div class="description-container">

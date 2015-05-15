@@ -21,7 +21,7 @@ momentjs:moment
 meteorhacks:search-source
 matteodem:easy-search
 sacha:spin
-cfs:standard-packages
 cfs:filesystem
 tomi:upload-server
 tomi:upload-jquery
+cfs:standard-packages

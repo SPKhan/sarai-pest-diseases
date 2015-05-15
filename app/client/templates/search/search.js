@@ -22,6 +22,9 @@ Template.Search.helpers({
 	},
 	imageSearchPath: function(){
 		return "image_search";
+	},
+	imageName: function(str){
+		return str.replace(/\s/g, '');
 	}
 });
 
