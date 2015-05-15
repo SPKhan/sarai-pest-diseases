@@ -1,58 +1,139 @@
 <template name="Home">
-	<div horizontal center-justified layout>
-		<a href="{{searchPath}}"><paper-button raised class="teal lighten-1 white-text">Search</paper-button></a>
+	<div class="section no-pad-bot">
+       <div class="container">
+        
+        <div class="row center">
+         {{> esInput index="plantProblem" placeholder="Search" }}
+        </div>
+      	<div horizontal center-justified layout>
+        	<a href="{{imageSearchPath}}"><paper-button raised class="teal lighten-1 white-text">Search By Image</paper-button></a>
+    	</div>
+    	<br/>
+        <div class="wrapper">
+        	{{#ifEsIsSearching index="plantProblem"}}
+        		{{>spinner}}
+			{{/ifEsIsSearching}}
 
-        <a href="{{imageSearchPath}}"><paper-button raised class="teal lighten-1 white-text">Search By Image</paper-button></a>
+        <div class="row">
+		{{#esEach index="plantProblem"}}
+			{{#if equals type "Disease"}}
+		        <div class="col s4">
+		          <div class="card">
+		            <div class="card-image waves-effect waves-block waves-light">
+		              <img class="activator" src="/images/MAIN_LOGO.png">
+		            </div>
+		            <div class="card-content">
+		            	<span class="card-title activator grey-text text-darken-4">{{titleCharLimit name}}<i class="mdi-navigation-more-vert right"></i></span>
+		            	<p><a href="{{pathFor 'entityPage'}}">View Page</a></p>
+		            </div>
+		            <div class="card-reveal">
+		            	<span class="card-title grey-text text-darken-4">{{name}}<i class="mdi-navigation-close right"></i></span>
+		            	<p>{{classification}} {{type}}</p>
+		            	<p>English Name: {{eng_name}}</p>
+		            	<p>Filipino Name: {{fil_name}}</p>
+					    <p>Scientific Name: {{sci_name}}</p>
+					    <p>Plant Affected: {{plant_affected}}</p>
+					    <p>{{charLimit symptoms}}</p>
+		            </div>
+		          </div>
+		        </div>
+			{{/if}}
+			
+			{{#if equals type "Pest"}}
+			      <!--<img src="{{imageURL}}"/>-->
+			      <div class="col s4">
+		          <div class="card">
+		            <div class="card-image waves-effect waves-block waves-light">
+		              <img class="activator" src="/images/MAIN_LOGO.png">
+		            </div>
+		            <div class="card-content">
+		            	<span class="card-title activator grey-text text-darken-4">{{titleCharLimit name}}<i class="mdi-navigation-more-vert right"></i></span>
+		            	<p><a href="{{pathFor 'entityPage'}}">View Page</a></p>
+		            </div>
+		            <div class="card-reveal">
+		            	<span class="card-title grey-text text-darken-4">{{name}}<i class="mdi-navigation-close right"></i></span>
+		            	<p>{{type}}</p>
+		            	<p>Order: {{order}}</p>
+		            	<p>English Name: {{eng_name}}</p>
+		            	<p>Filipino Name: {{fil_name}}</p>
+					    <p>Scientific Name: {{sci_name}}</p>
+					    <p>Plant Affected: {{plant_affected}}</p>
+					    <p>{{charLimit symptoms}}</p>
+		            </div>
+		          </div>
+		        </div>
+			{{/if}}
+		{{/esEach}}
+		</div>
+        </div>
+
+      {{> esLoadMoreButton index="plantProblem" class="waves-effect waves-light btn"}}
+
+      {{#ifEsHasNoResults index="plantProblem"}}
+          <div class="no-results">No results found!</div>
+      {{/ifEsHasNoResults}}
+
+      </div> 
     </div>
-    <div vertical layout style="height:500px">
-		<div flex>
-			<h4>PESTS</h4>
-			<div horizontal justified layout style="text-align: center;">
-				<div>
-					<img src="/images/apps/pests/Asian-Corn-Borer-ACB2.png" width="50%" >
-					<h5>Asian Corn Borer</h5>
-				</div>
 
-				<div>
-					<img src="/images/apps/pests/Common-Cutworm.png" width="50%" >
-					<h5>Common Cutworm</h5>
-				</div>
-
-				<div>
-					<img src="/images/apps/pests/Corn-Earworm2.png" width="50%" >
-					<h5>Corn Earworm</h5>
-				</div>
-
-				<div>
-					<img src="/images/apps/pests/Corn-Leaf-Aphid.png" width="50%" >
-					<h5>Corn Leaf Aphid</h5>
-				</div>
+    {{#ifEsInputIsEmpty index="plantProblem"}}
+    <div vertical layout class="container">
+		<div class="section no-pad-bot">
+			<a href="pests"><h1 class="header teal-text text-lighten-2">Pests</h1></a>
+			<div class="row">
+				{{#each pests}}
+					<div class="col s4">
+			          <div class="card">
+			            <div class="card-image waves-effect waves-block waves-light">
+			              <img class="activator" src="/images/MAIN_LOGO.png">
+			            </div>
+			            <div class="card-content">
+			            	<span class="card-title activator grey-text text-darken-4">{{titleCharLimit name}}<i class="mdi-navigation-more-vert right"></i></span>
+			            	<p><a href="{{pathFor 'entityPage'}}">View Page</a></p>
+			            </div>
+			            <div class="card-reveal">
+			            	<span class="card-title grey-text text-darken-4">{{name}}<i class="mdi-navigation-close right"></i></span>
+			            	<p>{{type}}</p>
+			            	<p>Order: {{order}}</p>
+			            	<p>English Name: {{eng_name}}</p>
+			            	<p>Filipino Name: {{fil_name}}</p>
+						    <p>Scientific Name: {{sci_name}}</p>
+						    <p>Plant Affected: {{plant_affected}}</p>
+						    <p>{{charLimit symptoms}}</p>
+			            </div>
+			          </div>
+			        </div>
+				{{/each}}
 			</div>
 		</div>
 
-		<div flex>
-			<h4>DISEASES</h4>
-			<div horizontal justified layout style="text-align: center;">
-				<div>
-					<img src="/images/apps/diseases/Banded-Leaf-and-Sheath-Blight.png" width="50%" >
-					<h5>Banded Leaf and Sheath Blight</h5>
-				</div>
-
-				<div>
-					<img src="/images/apps/diseases/Corn-Rust.png" width="50%" >
-					<h5>Corn Rust</h5>
-				</div>
-
-				<div>
-					<img src="/images/apps/diseases/Corn-Smut2.png" width="50%" >
-					<h5>Corn Smut</h5>
-				</div>
-
-				<div>
-					<img src="/images/apps/diseases/Downy-Mildew.png" width="50%" >
-					<h5>Downy Mildew</h5>
-				</div>
+		<div class="section no-pad-bot">
+			<a href="diseases"><h1 class="header teal-text text-lighten-2">Diseases</h1></a>
+			<div class="row">
+				{{#each diseases}}
+				<div class="col s4">
+		          <div class="card">
+		            <div class="card-image waves-effect waves-block waves-light">
+		              <img class="activator" src="/images/MAIN_LOGO.png">
+		            </div>
+		            <div class="card-content">
+		            	<span class="card-title activator grey-text text-darken-4">{{titleCharLimit name}}<i class="mdi-navigation-more-vert right"></i></span>
+		            	<p><a href="{{pathFor 'entityPage'}}">View Page</a></p>
+		            </div>
+		            <div class="card-reveal">
+		            	<span class="card-title grey-text text-darken-4">{{name}}<i class="mdi-navigation-close right"></i></span>
+		            	<p>{{classification}} {{type}}</p>
+		            	<p>English Name: {{eng_name}}</p>
+		            	<p>Filipino Name: {{fil_name}}</p>
+					    <p>Scientific Name: {{sci_name}}</p>
+					    <p>Plant Affected: {{plant_affected}}</p>
+					    <p>{{charLimit symptoms}}</p>
+		            </div>
+		          </div>
+		        </div>
+				{{/each}}
 			</div>
 		</div>
 	</div>
+	{{/ifEsInputIsEmpty}}
 </template>

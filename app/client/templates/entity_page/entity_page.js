@@ -8,6 +8,9 @@ Template.entityPage.events({
 /* entityPage: Helpers */
 /*****************************************************************************/
 Template.entityPage.helpers({
+	searchPath: function(){
+		return "search";
+	}
 });
 
 /*****************************************************************************/

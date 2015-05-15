@@ -1,4 +1,10 @@
 <template name="ImageSearch">
-	
-	{{> upload_bootstrap contentType='images' multiple=false formData=specificFormData callbacks=myCallbacks}}
+	<div class="row" horizontal center-justified layout>
+		<div class="col s6">
+		{{> upload_bootstrap contentType='images' multiple=false formData=specificFormData callbacks=myCallbacks}}
+		</div>
+	</div>
+	<div horizontal center-justified layout>
+		<a href="{{pathFor 'search'}}" class="waves-effect waves-light btn">Back to Search</a>
+	</div>
 </template>

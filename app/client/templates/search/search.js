@@ -13,6 +13,15 @@ Template.Search.helpers({
 	},
 	charLimit: function(str){
 		return str.substring(0,160) + "...";
+	},
+	titleCharLimit: function(str){
+		if(str.length > 13)
+			return str.substring(0,12) + "...";
+
+		return str;
+	},
+	imageSearchPath: function(){
+		return "image_search";
 	}
 });
 

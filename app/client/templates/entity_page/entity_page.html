@@ -2,16 +2,32 @@
 	<div class="section no-pad-bot">
 		<div class="title-pane container">
 				<div class="name-container">
-					<h1 class="header teal-text text-lighten-2">{{eng_name}}</h1>
+					<h1 class="header teal-text text-lighten-2">{{name}}</h1>
+					<h5 class="header col s12 light grey-text">{{eng_name}}</h5>
 					<h5 class="header col s12 light grey-text">{{fil_name}}</h5>
 					<h5 class="header col s12 light grey-text">{{sci_name}}</h5>
 					
 				</div>
+				{{#if description}}
+				<div class="description-container">
+					<h4 class="header teal-text text-lighten-3">Description</h4>
+					<p>{{description}}</p>
+				</div>
+				{{/if}}
+				{{#if symptoms}}
 				<div class="symptom-container">
+					<h4 class="header teal-text text-lighten-3">Symptoms</h4>
 					<p>{{symptoms}}</p>
 				</div>
+				{{/if}}
+				{{#if treatment}}
 				<div class="treatment-container">
+					<h4 class="header teal-text text-lighten-3">Treatment</h4>
 					<p>{{treatment}}</p>
+				</div>
+				{{/if}}
+				<div horizontal center-justified layout>
+					<a href="{{pathFor searchPath}}" class="waves-effect waves-light btn">Back to Search</a>
 				</div>
 		</div>
 	</div>

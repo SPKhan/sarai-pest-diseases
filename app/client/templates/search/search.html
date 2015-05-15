@@ -1,50 +1,73 @@
 <template name="Search">
-   
    <div class="section no-pad-bot">
        <div class="container">
         
         <div class="row center">
          {{> esInput index="plantProblem" placeholder="Search" }}
         </div>
-      
+      	<div horizontal center-justified layout>
+        	<a href="{{pathFor imageSearchPath}}"><paper-button raised class="teal lighten-1 white-text">Search By Image</paper-button></a>
+    	</div>
+    	<br/>
         <div class="wrapper">
         	{{#ifEsIsSearching index="plantProblem"}}
         		{{>spinner}}
-		{{/ifEsIsSearching}}
-        
+			{{/ifEsIsSearching}}
+
+        <div class="row">
 		{{#esEach index="plantProblem"}}
 			{{#if equals type "Disease"}}
-			<div class="row entity">
-			      <!--<img src="{{imageURL}}"/>-->
-			      <p>{{classification}} {{type}}</p>
-			      <p>{{eng_name}}</p>
-			      <p>Filipino Name: {{fil_name}}</p>
-			      <p>Scientific Name: {{sci_name}}</p>
-			      <p>Plant Affected: {{plant_affected}}</p>
-			      <p>{{charLimit symptoms}}</p>
-			      <a href="{{pathFor 'entityPage'}}" id="download-button" class="btn waves-effect waves-light teal lighten-1">View Page</a>
-			      <a href="{{pathFor 'entityPage'}}" id="download-button" class="btn waves-effect waves-light teal lighten-1">View Images</a>
-			</div>
+		        <div class="col s4">
+		          <div class="card">
+		            <div class="card-image waves-effect waves-block waves-light">
+		              <img class="activator" src="/images/MAIN_LOGO.png">
+		            </div>
+		            <div class="card-content">
+		            	<span class="card-title activator grey-text text-darken-4">{{titleCharLimit name}}<i class="mdi-navigation-more-vert right"></i></span>
+		            	<p><a href="{{pathFor 'entityPage'}}">View Page</a></p>
+		            </div>
+		            <div class="card-reveal">
+		            	<span class="card-title grey-text text-darken-4">{{name}}<i class="mdi-navigation-close right"></i></span>
+		            	<p>{{classification}} {{type}}</p>
+		            	<p>English Name: {{eng_name}}</p>
+		            	<p>Filipino Name: {{fil_name}}</p>
+					    <p>Scientific Name: {{sci_name}}</p>
+					    <p>Plant Affected: {{plant_affected}}</p>
+					    <p>{{charLimit symptoms}}</p>
+		            </div>
+		          </div>
+		        </div>
 			{{/if}}
 			
 			{{#if equals type "Pest"}}
-			<div class="row entity">
 			      <!--<img src="{{imageURL}}"/>-->
-			      <p>{{type}}</p>
-			      <p>{{eng_name}}</p>
-			      <p>Order: {{order}}</p>
-			      <p>Filipino Name: {{fil_name}}</p>
-			      <p>Scientific Name: {{sci_name}}</p>
-			      <p>Plant Affected: {{plant_affected}}</p>
-			      <p>{{charLimit symptoms}}</p>
-			      <a href="{{pathFor 'entityPage'}}" id="download-button" class="btn waves-effect waves-light teal lighten-1">View Page</a>
-			      <a href="{{pathFor 'entityPage'}}" id="download-button" class="btn waves-effect waves-light teal lighten-1">View Images</a>
-			</div>
+			      <div class="col s4">
+		          <div class="card">
+		            <div class="card-image waves-effect waves-block waves-light">
+		              <img class="activator" src="/images/MAIN_LOGO.png">
+		            </div>
+		            <div class="card-content">
+		            	<span class="card-title activator grey-text text-darken-4">{{titleCharLimit name}}<i class="mdi-navigation-more-vert right"></i></span>
+		            	<p><a href="{{pathFor 'entityPage'}}">View Page</a></p>
+		            </div>
+		            <div class="card-reveal">
+		            	<span class="card-title grey-text text-darken-4">{{name}}<i class="mdi-navigation-close right"></i></span>
+		            	<p>{{type}}</p>
+		            	<p>Order: {{order}}</p>
+		            	<p>English Name: {{eng_name}}</p>
+		            	<p>Filipino Name: {{fil_name}}</p>
+					    <p>Scientific Name: {{sci_name}}</p>
+					    <p>Plant Affected: {{plant_affected}}</p>
+					    <p>{{charLimit symptoms}}</p>
+		            </div>
+		          </div>
+		        </div>
 			{{/if}}
 		{{/esEach}}
+		</div>
         </div>
 
-      {{> esLoadMoreButton index="plantProblem"}}
+      {{> esLoadMoreButton index="plantProblem" class="waves-effect waves-light btn"}}
 
       {{#ifEsHasNoResults index="plantProblem"}}
           <div class="no-results">No results found!</div>
