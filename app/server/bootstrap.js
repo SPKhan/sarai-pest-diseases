@@ -3,6 +3,8 @@ Meteor.startup(function () {
 	    tmpDir: process.env.PWD + '/uploads/tmp',
 	    uploadDir: process.env.PWD + '/uploads/',
 	    checkCreateDirectories: true, //create the directories for you
-	    getFileName: function(fileInfo, formData) { return 'Saved-' + fileInfo.name; }
+	    getFileName: function(fileInfo, formData) { 
+	    	return Random.id()+".jpg"; 
+	    }
   	})
 });

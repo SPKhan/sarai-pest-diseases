@@ -13,7 +13,7 @@ Template.ImageSearch.helpers({
 	    return {
 	         finished: function(index, fileInfo, context) {
 	         	//insert ajax call to api
-	         	
+	         	console.log(fileInfo);
 	         }
 	    }
 	  }

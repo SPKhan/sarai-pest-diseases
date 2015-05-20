@@ -25,3 +25,4 @@ cfs:filesystem
 tomi:upload-server
 tomi:upload-jquery
 cfs:standard-packages
+random
