@@ -12,7 +12,7 @@ Template.entityPage.helpers({
 		return (v1 === v2);
 	},
 	searchPath: function(){
-		return "search";
+		return "home";
 	},
 	imageName: function(str){
 		return str.replace(/\s/g, '');

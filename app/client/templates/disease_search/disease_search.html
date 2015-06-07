@@ -1,0 +1,76 @@
+<template name="DiseaseSearch">
+  	<div class="row" horizontal center-justified layout>
+		<h1>Disease Image Search</h1>
+	</div>
+  	 <div class="row" horizontal center-justified layout>
+  		<div class='col s12 m6 l6'>
+  		<h6 class='dropText'>DROP YOUR IMAGE HERE</h6>
+		{{> dropzone fileTypes='.jpg,.png,.jpeg.,.JPG,.PNG' contentType='images' multiple=false formData=specificFormData callbacks=myCallbacks}}
+		</div>
+		
+ 	</div>
+	<div class="row" horizontal center-justified layout>
+		
+		<div class="section no-pad-bot">
+			{{#if data}}
+			<a class="waves-effect waves-light btn" onclick="$('.grid').show();$('.list').hide();"><i class="mdi-image-grid-on"></i></a>
+			<a class="waves-effect waves-light btn" onclick="$('.grid').hide();$('.list').show();"><i class="mdi-action-list"></i></a>
+			{{/if}}
+			<div class="row">
+				{{#each data}}
+			        <div class="col s12 list" style="display:none;">
+			          <div class="card">
+			            <div class="card-content">
+			            <div class="row">
+			            	<div class="col m4 l4">
+			            		<img src="/images/apps/{{type}}/{{imageName name}}.jpg" height="270" width="100%">
+			            	</div>
+				            <div class="col m8 l8">
+				              <span class="card-title grey-text text-darken-4">{{name}}</span>
+				            	<p>{{classification}}</p>
+				            	<p>English Name: {{eng_name}}</p>
+				            	<p>Filipino Name: {{fil_name}}</p>
+							    <p>Scientific Name: {{sci_name}}</p>
+							    <p>Plant Affected: {{plant_affected}}</p>
+							    <p>Symptoms: {{ charLimit symptoms}}</p>
+							    <p>Description: {{charLimit description}}</p>
+				              	<p class="left-align"><a href="{{pathFor 'entityPage'}}">View Page</a>
+				              	<button href="#" id="{{name}}" class="btn btn-large waves-effect waves-light red add"><i class="mdi-navigation-check"></i></button></p>
+				             </div>
+			            </div>	
+			            </div>
+			          </div>
+			        </div>
+			       {{/each}}
+			       {{#each data}}
+			       <div class="col s4 grid">
+			          <div class="card pest_search_card">
+			            <div class="card-image waves-effect waves-block waves-light">
+			              <img class="activator pest_search_activator" src="/images/apps/{{type}}/{{imageName name}}.jpg">
+			            </div>
+			            <div class="card-content">
+			            	<span class="card-title activator grey-text text-darken-4">{{titleCharLimit name}}<i class="mdi-navigation-more-vert right"></i></span>
+			            	<p class="left-align"><a href="{{pathFor 'entityPage'}}">View Page</a></p>
+			            	<p class="center-align"><button href="#" id="{{name}}" class="btn-floating btn-large waves-effect waves-light red add"><i class="mdi-navigation-check"></i></button></p>
+			            </div>
+			            <div class="card-reveal">
+			            	<span class="card-title grey-text text-darken-4">{{name}}<i class="mdi-navigation-close right"></i></span>
+			            	<p>{{classification}}</p>
+			            	<p>Order: {{order}}</p>
+			            	<p>English Name: {{eng_name}}</p>
+			            	<p>Filipino Name: {{fil_name}}</p>
+						    <p>Scientific Name: {{sci_name}}</p>
+						    <p>Plant Affected: {{plant_affected}}</p>
+						    <p>{{charLimit symptoms}}</p>
+			            </div>
+			          </div>
+			        </div>
+			       {{/each}}
+			</div>
+	</div>
+	</div>
+
+  	<div horizontal center-justified layout>
+		<a href="{{pathFor 'home'}}" class="waves-effect waves-light btn">Back to Search</a>
+	</div>
+</template>

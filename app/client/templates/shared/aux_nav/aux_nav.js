@@ -15,91 +15,31 @@ Template.Auxillary.helpers({
   auxArray: function() {
     return [
       {
-        name: "REGION",
+        name: "Rice",
         path: "rice",
         linkInside: true
       },
       
       {
-        name: "I",
+        name: "Corn",
         path: "corn",
         linkInside: true
       },      
       
       {
-        name: "II",
+        name: "Banana",
         path: "banana",
         linkInside: true
       },
       {
-        name: "III",
+        name: "Coconut",
         path: "coconut",
         linkInside: true
       },
       
       {
-        name: "IV",
+        name: "Coffee",
         path: "coffee",
-        linkInside: true
-      },      
-      
-      {
-        name: "V",
-        path: "cacao",
-        linkInside: true
-      },      
-      
-      {
-        name: "VI",
-        path: "cacao",
-        linkInside: true
-      },      
-      
-      {
-        name: "VII",
-        path: "cacao",
-        linkInside: true
-      },      
-      
-      {
-        name: "VIII",
-        path: "cacao",
-        linkInside: true
-      },      
-      
-      {
-        name: "IX",
-        path: "cacao",
-        linkInside: true
-      },      
-      
-      {
-        name: "X",
-        path: "cacao",
-        linkInside: true
-      },      
-      
-      {
-        name: "XI",
-        path: "cacao",
-        linkInside: true
-      },      
-      
-      {
-        name: "XII",
-        path: "cacao",
-        linkInside: true
-      },      
-      
-      {
-        name: "ARMM",
-        path: "cacao",
-        linkInside: true
-      },      
-      
-      {
-        name: "NCR",
-        path: "cacao",
         linkInside: true
       }
     ]

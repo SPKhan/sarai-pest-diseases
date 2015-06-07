@@ -8,15 +8,11 @@ Template.ImageSearch.events({
 /*****************************************************************************/
 /* ImageSearch: Helpers */
 /*****************************************************************************/
+
+
 Template.ImageSearch.helpers({
-	 myCallbacks: function() {
-	    return {
-	         finished: function(index, fileInfo, context) {
-	         	//insert ajax call to api
-	         	console.log(fileInfo);
-	         }
-	    }
-	  }
+		  
+
 });
 
 /*****************************************************************************/

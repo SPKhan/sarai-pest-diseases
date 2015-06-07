@@ -1,10 +1,29 @@
 <template name="ImageSearch">
-	<div class="row" horizontal center-justified layout>
-		<div class="col s6">
-		{{> upload_bootstrap contentType='images' multiple=false formData=specificFormData callbacks=myCallbacks}}
-		</div>
+	<div class="row container" horizontal center-justified layout>
+		<div class='col s12 m6 l6'>
+		<a href="pest_search">
+		<div class="card large image_search_card">
+        <div class="card-image waves-effect waves-block waves-light">
+          <img class="activator image_search_activator" src="/images/pest.jpg">
+        </div>
+        <div class="card-content">
+          <span class="card-title activator grey-text text-darken-4">Pest</span>
+        </div>
+      </div>
+  		</a>
+  		</div>
+  		<div class='col s12 m6 l6'>
+		<a href="disease_search">
+		<div class="card large image_search_card">
+        <div class="card-image waves-effect waves-block waves-light">
+          <img class="activator image_search_activator" src="/images/disease.jpg">
+        </div>
+        <div class="card-content">
+          <span class="card-title activator grey-text text-darken-4">Disease</span>
+        </div>
+      </div>
+  		</a>
+  		</div>
 	</div>
-	<div horizontal center-justified layout>
-		<a href="{{pathFor 'search'}}" class="waves-effect waves-light btn">Back to Search</a>
-	</div>
+	 
 </template>

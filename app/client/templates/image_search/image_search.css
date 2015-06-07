@@ -3,3 +3,11 @@
 /*****************************************************************************/
 .image-search {
 }
+
+.image_search_card{
+	height: 350px;
+}
+
+.image_search_activator{
+	height: 250px;
+}

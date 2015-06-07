@@ -1,15 +1,34 @@
 /*****************************************************************************/
-/* Diseases: Style */
+/* PestSearch: Style */
 /*****************************************************************************/
-.diseases {
+.pest-search {
 }
+
+.pest_search_card{
+    padding-bottom: 3px;
+    height: 380px;
+}
+
+.pest_search_activator{
+    height: 200px;
+}
+
+.dropText{
+    font-weight: bold;
+    font-size: 14pt;
+    font-family: "Arial Black",Gadget,sans-serif;
+}
+
 .jqDropZone {
     background: lightgrey;
-    width: 600px;
+    width: 100%;
     height: 300px;
     line-height: 50px;
     text-align: center;
     font-weight: bold;
+    font-size: 20px;
+    border: 2px #666 solid;
+    margin-bottom: 5px;
 }
 .jqDropZone.in {
     width: 600px;

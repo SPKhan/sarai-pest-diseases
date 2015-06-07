@@ -9,7 +9,8 @@ Router.route('/', {
   name: 'home',
   controller: 'HomeController',
   action: 'action',
-  where: 'client'
+  where: 'client',
+  waitOn: function() { return Meteor.subscribe('plantProblem'); }
 });
 
 
@@ -31,21 +32,19 @@ Router.route('pests', {
   name: 'pests',
   controller: 'PestsController',
   action: 'action',
-  where: 'client'
+  where: 'client',
+  waitOn: function() { 
+    return Meteor.subscribe('plantProblem'); },
+  
+
 });
 
 Router.route('diseases', {
   name: 'diseases',
   controller: 'DiseasesController',
   action: 'action',
-  where: 'client'
-});
-
-Router.route('search', {
-  name: 'search',
-  controller: 'SearchController',
-  action: 'action',
-  where: 'client'
+  where: 'client',
+  waitOn: function() { return Meteor.subscribe('plantProblem'); }
 });
 
 Router.route('image_search', {
@@ -53,7 +52,9 @@ Router.route('image_search', {
   controller: 'ImageSearchController',
   action: 'action',
   where: 'client',
+  waitOn: function() { return Meteor.subscribe('plantProblem'); }
 });
+
 
 Router.route('/entity/:_id', {
   name: 'entityPage',
@@ -61,3 +62,24 @@ Router.route('/entity/:_id', {
   	return PlantProblem.findOne(this.params._id); }
 });
 
+
+
+Router.route('pest_search', {
+  name: 'pestSearch',
+  controller: 'PestSearchController',
+  action: 'action',
+  where: 'client',
+  waitOn: function() { 
+    Session.set('data',undefined);
+    return Meteor.subscribe('plantProblem'); }
+});
+
+Router.route('disease_search', {
+  name: 'diseaseSearch',
+  controller: 'DiseaseSearchController',
+  action: 'action',
+  where: 'client',
+  waitOn: function() { 
+    Session.set('data',undefined);
+    return Meteor.subscribe('plantProblem'); }
+});
