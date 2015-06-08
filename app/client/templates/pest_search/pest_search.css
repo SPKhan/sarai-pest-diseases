@@ -20,8 +20,9 @@
 }
 
 .jqDropZone {
+    margin: auto;
     background: lightgrey;
-    width: 100%;
+    width: 400px;
     height: 300px;
     line-height: 50px;
     text-align: center;
@@ -31,8 +32,8 @@
     margin-bottom: 5px;
 }
 .jqDropZone.in {
-    width: 600px;
-    height: 200px;
+    width: 400px;
+    height: 300px;
     line-height: 200px;
     font-size: larger;
 }

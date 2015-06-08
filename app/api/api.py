@@ -275,10 +275,9 @@ def pestImageSearch():
 	for i in xrange(0,5):
 		pestData.append({'name':pests[sortedPestPrediction[i]],'confidence':pestPrediction[sortedPestPrediction[i]]})
 
-	os.remove(filename)
+	#result = {'data': pestData, 'features': pestFeatures[0].tolist() }
+	result = {'data': pestData}
 
-	result = {'data': pestData, 'features': pestFeatures[0].tolist() }
-	
 	return json.dumps(result)
 
 @app.route("/diseaseImageSearch",methods=["POST"])
@@ -293,62 +292,83 @@ def diseaseImageSearch():
 	diseaseData=[]
 	for i in xrange(0,5):
 		diseaseData.append({'name':diseases[sortedDiseasePrediction[i]],'confidence':diseasePrediction[sortedDiseasePrediction[i]]})
-
-	os.remove(filename)
 	
-	result = {'data': diseaseData,'features':diseaseFeatures[0].tolist()}
+	#result = {'data': diseaseData,'features':diseaseFeatures[0].tolist()}
+
+	result = {'data': diseaseData}
 
 	return json.dumps(result)
 
-@app.route("/pestAddTrainingData",methods=["POST"])
-def pestAddTrainingData():
-	features = request.form.get("input","")
-	target = request.form.get("target","")
-	features = features.split(",")
-	features = map(float, features)
+@app.route("/addTrainingData",methods=["POST"])
+def addTrainingData():	
+	flag = request.form.get("flag","")
+	filename = request.form.get("filename","")
 	
-	inputs = np.empty( (1, len(features)), 'float' )
-	a = np.array(list(features))
-	f = a.astype('float')
-	inputs[0,:]=f[:]
+	if flag != "true":
+		os.remove(filename)
+	else:
+		classification = request.form.get("type","")
+		target = request.form.get("target","")
+		
+		DIR = "pending/"+classification+"/"+target
+		if not os.path.exists(DIR):
+    			os.makedirs(DIR)
 
-	targets= -1 * np.ones( (1, len(pests)), 'float' )
+    	index = len([name for name in os.listdir(DIR) if os.path.isfile(os.path.join(DIR, name))])
 
-	targets[0][pests.index(target)]=1
+    	os.rename(filename,DIR+"/"+index+".jpg")
 
-	condition = cv2.TERM_CRITERIA_COUNT | cv2.TERM_CRITERIA_EPS
-	criteria = (condition, 900, 0.0000000001)
+	return True
+
+# @app.route("/pestAddTrainingData",methods=["POST"])
+# def pestAddTrainingData():
+# 	features = request.form.get("input","")
+# 	target = request.form.get("target","")
+# 	features = features.split(",")
+# 	features = map(float, features)
 	
-	params = dict( term_crit = criteria,train_method = cv2.ANN_MLP_TRAIN_PARAMS_BACKPROP,bp_dw_scale = 0.1, bp_moment_scale = 0.003 )
+# 	inputs = np.empty( (1, len(features)), 'float' )
+# 	a = np.array(list(features))
+# 	f = a.astype('float')
+# 	inputs[0,:]=f[:]
 
-	#pestANN.train(inputs,targets,None,params=params,flags=cv2.ANN_MLP_UPDATE_WEIGHTS)
+# 	targets= -1 * np.ones( (1, len(pests)), 'float' )
 
-	return "HAHA"
+# 	targets[0][pests.index(target)]=1
 
-@app.route("/diseaseAddTrainingData",methods=["POST"])
-def diseaseAddTrainingData():
-	features = request.form.get("input","")
-	target = request.form.get("target","")
-	features = features.split(",")
-	features = map(float, features)
+# 	condition = cv2.TERM_CRITERIA_COUNT | cv2.TERM_CRITERIA_EPS
+# 	criteria = (condition, 900, 0.0000000001)
 	
-	inputs = np.empty( (1, len(features)), 'float' )
-	a = np.array(list(features))
-	f = a.astype('float')
-	inputs[0,:]=f[:]
+# 	params = dict( term_crit = criteria,train_method = cv2.ANN_MLP_TRAIN_PARAMS_BACKPROP,bp_dw_scale = 0.1, bp_moment_scale = 0.003 )
 
-	targets= -1 * np.ones( (1, len(diseases)), 'float' )
+# 	#pestANN.train(inputs,targets,None,params=params,flags=cv2.ANN_MLP_UPDATE_WEIGHTS)
 
-	targets[0][diseases.index(target)]=1
+# 	return "HAHA"
 
-	condition = cv2.TERM_CRITERIA_COUNT | cv2.TERM_CRITERIA_EPS
-	criteria = (condition, 50000, 0.0000000001)
+# @app.route("/diseaseAddTrainingData",methods=["POST"])
+# def diseaseAddTrainingData():
+# 	features = request.form.get("input","")
+# 	target = request.form.get("target","")
+# 	features = features.split(",")
+# 	features = map(float, features)
 	
-	params = dict( term_crit = criteria,train_method = cv2.ANN_MLP_TRAIN_PARAMS_BACKPROP,bp_dw_scale = 0.08, bp_moment_scale = 0.003 )
+# 	inputs = np.empty( (1, len(features)), 'float' )
+# 	a = np.array(list(features))
+# 	f = a.astype('float')
+# 	inputs[0,:]=f[:]
 
-	#diseaseANN.train(inputs,targets,None,params=params,flags=cv2.ANN_MLP_UPDATE_WEIGHTS)
+# 	targets= -1 * np.ones( (1, len(diseases)), 'float' )
 
-	return "HAHA"
+# 	targets[0][diseases.index(target)]=1
+
+# 	condition = cv2.TERM_CRITERIA_COUNT | cv2.TERM_CRITERIA_EPS
+# 	criteria = (condition, 50000, 0.0000000001)
+	
+# 	params = dict( term_crit = criteria,train_method = cv2.ANN_MLP_TRAIN_PARAMS_BACKPROP,bp_dw_scale = 0.08, bp_moment_scale = 0.003 )
+
+# 	#diseaseANN.train(inputs,targets,None,params=params,flags=cv2.ANN_MLP_UPDATE_WEIGHTS)
+
+# 	return "HAHA"
 
 	
 

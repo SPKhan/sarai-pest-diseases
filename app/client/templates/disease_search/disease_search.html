@@ -4,7 +4,6 @@
 	</div>
   	 <div class="row" horizontal center-justified layout>
   		<div class='col s12 m6 l6'>
-  		<h6 class='dropText'>DROP YOUR IMAGE HERE</h6>
 		{{> dropzone fileTypes='.jpg,.png,.jpeg.,.JPG,.PNG' contentType='images' multiple=false formData=specificFormData callbacks=myCallbacks}}
 		</div>
 		
@@ -15,10 +14,18 @@
 			{{#if data}}
 			<a class="waves-effect waves-light btn" onclick="$('.grid').show();$('.list').hide();"><i class="mdi-image-grid-on"></i></a>
 			<a class="waves-effect waves-light btn" onclick="$('.grid').hide();$('.list').show();"><i class="mdi-action-list"></i></a>
+			{{else}}
+			<p>Guidelines:</p>
+			<ol>
+				<li>Open the directory of the image you want to upload.</li>
+				<li>Drag the image into the box above.</li>
+				<li>The image must contain the infected part of the plant.</li>
+				<li>For better accuracy, the image must be very close up and must have a clean background.</li>
+			</ol>
 			{{/if}}
 			<div class="row">
 				{{#each data}}
-			        <div class="col s12 list" style="display:none;">
+			        <div class="col s12 list">
 			          <div class="card">
 			            <div class="card-content">
 			            <div class="row">
@@ -43,7 +50,7 @@
 			        </div>
 			       {{/each}}
 			       {{#each data}}
-			       <div class="col s4 grid">
+			       <div class="col s4 grid" style="display:none;">
 			          <div class="card pest_search_card">
 			            <div class="card-image waves-effect waves-block waves-light">
 			              <img class="activator pest_search_activator" src="/images/apps/{{type}}/{{imageName name}}.jpg">

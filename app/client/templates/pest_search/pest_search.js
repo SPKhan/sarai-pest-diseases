@@ -5,12 +5,12 @@ Template.PestSearch.events({
 	"click .add": function (event, template) {
     			$.ajax({
 					type:"POST",
-					url:"http://127.0.0.1:5000/pestAddTrainingData",
+					url:"http://127.0.0.1:5000/addTrainingData",
 					dataType:"json",
 					data: 
 						{
-							'input': Session.get('features').toString(),
-							'target': event.target.parentNode.id
+							'target': event.target.parentNode.id,
+							'filename': Session.get("filename"),
 						},
 					success: function(result){
 						
@@ -19,12 +19,11 @@ Template.PestSearch.events({
 						
 					}
 				});	
+    			Session.set("filename",undefined);
 
 				$('.add').attr('disabled','disabled');
 				$('.add').addClass('grey');
 				$('.add').addClass('white-text');
-				
-
   	},
 });
 
@@ -37,6 +36,7 @@ Template.PestSearch.helpers({
 	         finished: function(index, fileInfo, context) {
 	         	Session.set('data',undefined);
 	         	filename = "../uploads/"+fileInfo.name;
+	         	Session.set("filename",filename);
 	         	$('.jqDropZone').html("<img src='"+fileInfo.url+"' width='100%' height='295px'/>");
 	         	$.ajax({
 					type:"POST",
@@ -48,8 +48,7 @@ Template.PestSearch.helpers({
 						},
 					success: function(result){
 						Session.set('data',result.data);
-						console.log(result.data);
-						Session.set('features',result.features);			
+						console.log(result.data);		
 					},
 					error: function(error){
 						
@@ -92,7 +91,7 @@ Template.PestSearch.created = function () {
 };
 
 Template.PestSearch.rendered = function () {
-	$('.jqDropZone').html("");
+	$('.jqDropZone').html("<img src='/images/drop-here.png' width='100%' height='300px'/>");
 };
 
 Template.PestSearch.destroyed = function () {
