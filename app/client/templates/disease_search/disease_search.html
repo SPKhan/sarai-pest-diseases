@@ -8,6 +8,20 @@
 		</div>
 		
  	</div>
+ 		{{#if data}}
+ 			<div class="row" id="confirm" horizontal center-justified layout>
+				<div class="section no-pad-bot">
+					<div class="col s7">
+					<p>Would you like to add this to the database?</p>
+					</div>
+					<div class="col s5" style="padding-top:15px;">
+						<a class="waves-effect waves-light btn blue yes">Yes</a>
+						<a class="waves-effect waves-light btn red no">No</a>
+					</div>
+				</div>
+			</div>
+			
+		{{/if}}
 	<div class="row" horizontal center-justified layout>
 		
 		<div class="section no-pad-bot">
@@ -42,7 +56,7 @@
 							    <p>Symptoms: {{ charLimit symptoms}}</p>
 							    <p>Description: {{charLimit description}}</p>
 				              	<p class="left-align"><a href="{{pathFor 'entityPage'}}">View Page</a>
-				              	<button href="#" id="{{name}}" class="btn btn-large waves-effect waves-light red add"><i class="mdi-navigation-check"></i></button></p>
+				              	<button href="#" id="{{name}}" class="btn btn-large waves-effect waves-light red add" style="display:none;">This is it!</button></p>
 				             </div>
 			            </div>	
 			            </div>
@@ -58,7 +72,7 @@
 			            <div class="card-content">
 			            	<span class="card-title activator grey-text text-darken-4">{{titleCharLimit name}}<i class="mdi-navigation-more-vert right"></i></span>
 			            	<p class="left-align"><a href="{{pathFor 'entityPage'}}">View Page</a></p>
-			            	<p class="center-align"><button href="#" id="{{name}}" class="btn-floating btn-large waves-effect waves-light red add"><i class="mdi-navigation-check"></i></button></p>
+			            	<p class="center-align"><button href="#" id="{{name}}" class="btn btn-large waves-effect waves-light red add" style="display:none;">This is it!</button></p>
 			            </div>
 			            <div class="card-reveal">
 			            	<span class="card-title grey-text text-darken-4">{{name}}<i class="mdi-navigation-close right"></i></span>
@@ -80,4 +94,20 @@
   	<div horizontal center-justified layout>
 		<a href="{{pathFor 'home'}}" class="waves-effect waves-light btn">Back to Search</a>
 	</div>
+	<!-- Modal Structure -->
+	<div id="modal1" class="modal">
+	    <div class="modal-content">
+	      <h4 class="teal-text">Thank you for your contribution!</h4>
+	      <p>By adding to our database, you can help us improve the accuracy of the app. For more information and consultation, you may contact the following:</p>
+	      <ul>
+	      	<li>Melvin D. Ebuenga - University Researcher - NCPC, UPLB</li>
+		    <li>Bonifactio F. Cayabyab - University Researcher - NCPC, UPLB</li>
+		    <li>Ireneo B. Pangga - Assistant Professor - CPC, CA, UPLB</li>
+		    <li>Gideon Ares S. Burgonio - University Research Assistant - NCPC, UPLB</li>
+		   </ul>
+	    </div>
+	    <div class="modal-footer">
+	      <a href="#!" class=" modal-action modal-close waves-effect waves-green btn">Okay</a>
+	    </div>
+	  </div>
 </template>

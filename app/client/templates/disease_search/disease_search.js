@@ -9,7 +9,9 @@ Template.DiseaseSearch.events({
 					dataType:"json",
 					data: 
 						{
-							'target': event.target.parentNode.id,
+							'flag':'true',
+							'type': 'disease',
+							'target': event.target.id,
 							'filename': Session.get("filename"),
 						},
 					success: function(result){
@@ -20,10 +22,34 @@ Template.DiseaseSearch.events({
 					}
 				});	
     			Session.set("filename",undefined);
-    			
-				$('.add').attr('disabled','disabled');
-				$('.add').addClass('grey');
-				$('.add').addClass('white-text');
+
+				$('.add').remove();
+				$('#modal1').openModal();
+				$("#confirm").remove();
+  	},
+  	"click .no": function (event, template) {
+    			$.ajax({
+					type:"POST",
+					url:"http://127.0.0.1:5000/addTrainingData",
+					dataType:"json",
+					data: 
+						{
+							'flag': 'false',
+							'filename': Session.get("filename"),
+						},
+					success: function(result){
+						
+					},
+					error: function(error){
+						
+					}
+				});	
+    			Session.set("filename",undefined);
+				$("#confirm").remove();
+  	},
+  	"click .yes": function (event, template) {
+    			$('.add').show();
+    			$("#confirm").html("<div class='section no-pad-bot'><p>Please select by clicking the button 'This is it!'</p></div>");
   	},
 });
 
@@ -91,7 +117,7 @@ Template.DiseaseSearch.created = function () {
 };
 
 Template.DiseaseSearch.rendered = function () {
-	$('.jqDropZone').html("<img src='/images/drop-here.png' width='100%' height='300px'/>");
+	$('.jqDropZone').html("<img src='/images/drop-here.png' width='100%' height='295px'/>");
 };
 
 Template.DiseaseSearch.destroyed = function () {

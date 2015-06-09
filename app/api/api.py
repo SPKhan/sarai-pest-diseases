@@ -312,13 +312,12 @@ def addTrainingData():
 		
 		DIR = "pending/"+classification+"/"+target
 		if not os.path.exists(DIR):
-    			os.makedirs(DIR)
+			os.makedirs(DIR)
+		index = len([name for name in os.listdir(DIR) if os.path.isfile(os.path.join(DIR, name))])
+		
+		os.rename(filename,DIR+"/"+str(index)+".jpg")
 
-    	index = len([name for name in os.listdir(DIR) if os.path.isfile(os.path.join(DIR, name))])
-
-    	os.rename(filename,DIR+"/"+index+".jpg")
-
-	return True
+	return "HAHAHAHAHAHA"
 
 # @app.route("/pestAddTrainingData",methods=["POST"])
 # def pestAddTrainingData():
